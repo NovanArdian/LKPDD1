@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konten Gambar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        #joker {
+            border: 5px solid blue;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* Space between elements */
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 5px;
+            width: 150px; /* Adjust width as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <img id="joker" src="satu.png" alt="Gambar">
+    <form action="">
+        <div class="form-group">
+            <select name="gambar" id="gambar" onchange="changeGambar(this)">
+                <option value="satu.png">gambar 1</option>
+                <option value="dua.png">gambar 2</option>
+                <option value="tiga.jpg">gambar 3</option>
+            </select>
+            <select name="border" id="border" onchange="changeBorder(this)">
+                <option value="blue">border biru</option>
+                <option value="yellow">border kuning</option>
+                <option value="red">border merah</option>
+            </select>
+            <select name="bentuk" id="bentuk" onchange="changeBentuk(this)">
+                <option value="segi">Segitiga</option>
+                <option value="Kotak">Kotak</option>
+                <option value="bulad">Lingkaran</option>
+            </select>
+        </div>
+    </form>
+
+    <script>
+        function changeGambar(e) {
+            const preview = document.getElementById('joker');
+            const pilihGambar = e.value;
+
+            preview.src = pilihGambar;
+
+            preview.style.display = 'block';
+        }
+
+        function changeBorder(c) {
+            const preview = document.getElementById('joker');
+            const pilihBorder = c.value;
+
+            preview.style.borderColor = pilihBorder;
+        }
+
+        function changeBentuk(p) {
+            const preview = document.getElementById('joker');
+            const pilihBentuk = p.value;
+
+            if (pilihBentuk === 'Kotak') {
+                preview.style.borderRadius = '0';
+                preview.style.width = '200px';
+                preview.style.height = '200px';
+                preview.style.clipPath = 'none';
+            } else if (pilihBentuk === 'bulad') {
+                preview.style.borderRadius = '100%';
+                preview.style.clipPath = 'none';
+            } else if (pilihBentuk === 'segi') {
+                preview.style.borderRadius = '0';
+                preview.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input Date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="date"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #878080;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000000;
+        }
+
+        #result {
+            font-weight: bold;
+            color: #12110d;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="form1">
+            <input type="date" id="search-input" />
+            <input type="submit" value="Submit" />
+        </form>
+        <p id="result">tidak bisa mencari data</p>
+    </div> 
+
+    <script>
+        document.getElementById("form1").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let inputValue = document.getElementById("search-input").value;
+
+            if (inputValue === "") {
+                document.getElementById("result").innerHTML = "Tidak mencari data...";
+            } else {
+                let dateObj = new Date(inputValue);
+                let options = { day: 'numeric', month: 'long', year: 'numeric' };
+                let formattedDate = dateObj.toLocaleDateString('id-ID', options);
+
+                document.getElementById("result").innerHTML =
+                    "Mencari data untuk tanggal <span class='blue-text'>" + formattedDate + "</span>...";
+            }
+        });
+    </script>
+</body>
+
+</html>

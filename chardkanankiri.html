@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Menambahkan jarak antara kartu */
+            padding: 40px;
+            position: relative;
+        }
+
+        .card1, .card2, .card3 {
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+            flex: 1 1 calc(50% - 20px); /* Memastikan kartu menggunakan 50% lebar, dengan gap */
+        }
+
+        .card1 {
+            margin-right: 700px; /* Menambahkan border di sebelah kiri card1 */
+        }
+
+        .card3 {
+            margin-right: 700px; /* Kartu 3 menggunakan 100% lebar pada baris baru */
+        }
+
+        .card2 {
+            margin-left: 700px; /* Menambahkan jarak antara card2 dan card1 */
+        }
+
+        .submit-button-container {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card1" id="card1">
+            <h2>Card 1</h2>
+            <p>Ini adalah isi dari Card 1.</p>
+        </div>
+        <div class="card2" id="card2">
+            <h2>Card 2</h2>
+            <p>Ini adalah isi dari Card 2.</p>
+        </div>
+        <div class="card3" id="card3">
+            <h2>Card 3</h2>
+            <p>Ini adalah isi dari Card 3.</p>
+        </div>
+    </div>
+    <div class="submit-button-container">
+        <button class="submit-button">Submit</button>
+    </div>
+</body>
+
+</html>

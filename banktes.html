@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Rekomendasi</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+    <form id="recommendationForm">
+        <div class="form-group">
+            <label for="recommendationOption">Apakah Anda memiliki rekomendasi?</label>
+            <select id="recommendationOption" name="recommendationOption" onchange="toggleRecommenderInput()">
+                <option value="no">Tidak</option>
+                <option value="yes">Ada</option>
+            </select>
+        </div>
+        
+        <div id="recommenderNameGroup" class="hidden form-group">
+            <label for="recommenderName">Nama Perekomendasi:</label>
+            <input type="text" id="recommenderName" name="recommenderName">
+        </div>
+
+        <div id="kategoriGroup" class="hidden form-group">
+            <label for="kategori">Kategori Jabatan</label>
+            <select id="kategori" name="kategori" onchange="kategorinih()">
+                <option value="no">purna bakti</option>
+                <option value="yes">Pekerja bri</option>
+            </select>
+
+            <label for="ktp">No KTP/MP/KK:</label>
+        <input type="text" id="ktp" name="ktp">
+        <br>
+        </div>
+
+        
+
+        <div id="biokategori" class="hidden form-group">
+           
+            <br>
+            <label for="kategoriInput">Kategori:</label>
+            <input type="text" id="kategoriInput" name="kategoriInput">
+        </div>
+    </form>
+    
+    <script>
+        function toggleRecommenderInput() {
+            var recommendationSelect = document.getElementById('recommendationOption');
+            var recommenderNameGroup = document.getElementById('recommenderNameGroup');
+            var kategoriGroup = document.getElementById('kategoriGroup');
+            
+            if (recommendationSelect.value === 'yes') {
+                recommenderNameGroup.classList.remove('hidden');
+                kategoriGroup.classList.remove('hidden');
+            } else {
+                recommenderNameGroup.classList.add('hidden');
+                kategoriGroup.classList.add('hidden');
+                document.getElementById('biokategori').classList.add('hidden');
+            }
+        }
+        
+        function kategorinih() {
+            var select = document.getElementById('kategori');
+            var biokategoriGroup = document.getElementById('biokategori');
+            if (select.value === 'yes') {
+                biokategoriGroup.classList.remove('hidden');
+            } else {
+                biokategoriGroup.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
